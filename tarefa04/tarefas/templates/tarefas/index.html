@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Listas de Tarefas </title>
+</head>
+<body>
+
+    <h> Listas de Tarefas</h>
+
+    <table>
+        <tr>
+            <th> Nome </th>
+            <th> Status </th>
+            <th> Prazo </th>
+        </tr>
+        (% for tarefa in tarefas %)
+        <tr class="{% if tarefa.prazo < hoje and tarefa.status == 'Pendente'%}atrasada{% else %}ok{% endif %}">
+            <td> {{tarefa.nome}}</td>
+            <td> {{tarefa.status}}</td>
+            <td> {{tarefa.prazo}}</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
