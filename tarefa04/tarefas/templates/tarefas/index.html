@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Listas de Tarefas </title>
+    
+    <style>
+        
+        body{
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 70%;
+        }
+        
+        .atrasada{
+            background: red;
+            color: white;
+        }
+
+        th,td{
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .ok{
+            background: #d3edda;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -15,12 +44,20 @@
             <th> Status </th>
             <th> Prazo </th>
         </tr>
-        (% for tarefa in tarefas %)
+        {% for tarefa in tarefas %}
         <tr class="{% if tarefa.prazo < hoje and tarefa.status == 'Pendente'%}atrasada{% else %}ok{% endif %}">
             <td> {{tarefa.nome}}</td>
             <td> {{tarefa.status}}</td>
             <td> {{tarefa.prazo}}</td>
         </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="3"> Nenhuma tarefa cadastrada! </td>
+        </tr>
+        {% endfor %}
+        
     </table>
     
 </body>
