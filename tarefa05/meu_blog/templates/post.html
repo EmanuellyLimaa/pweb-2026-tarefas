@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ post.titulo }}</h2>
+
+<p>Data: {{ post.data }}</p>
+
+<img src="{{ post.imagem.url }}" width="500">
+
+<p>{{ post.texto }}</p>
+
+{% endblock %}

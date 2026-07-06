@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Postagens </h2>
+
+{% for post in posts %}
+
+<h3> {{ post.titulo }} </h3>
+
+<p> Data: {{ post.data }}</p>
+
+<a href="{% url 'post' post.id %}"> Ver Postagem </a>
+
+<hr>
+
+{% empty %}
+
+<p> Nenhuma postagem foi cadastrada/feita. </p>
+{% endfor %}
+
+{% endblock%}
